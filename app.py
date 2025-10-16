@@ -4,9 +4,20 @@ from youtube_service import get_channel_stats, get_video_stats
 from report_generator import create_pdf_report
 from stripe_checkout import start_checkout, verify_checkout_session
 from dotenv import load_dotenv
+from utils.report_generator import generate_pdf_report
+from utils.youtube_utils import get_channel_stats
+from utils.stripe_handler import handle_payment
+from googleapiclient.discovery import build
 
 load_dotenv()  # loads .env in working dir for local testing
 
+# --- Sidebar Navigation ---
+menu = st.sidebar.radio("메뉴 선택", ["YouTube 분석", "리포트 생성", "API Key 진단"])
+
+if menu == "API Key 진단":
+    from utils.api_diagnose import test_youtube_api_key
+    test_youtube_api_key()
+ # ---   
 st.set_page_config(page_title="YouTube Insight Pro", page_icon="🎥", layout="wide")
 st.title("🎬 YouTube Insight Pro")
 st.write("AI 기반 YouTube 채널 분석 및 자동 보고서 생성 서비스 (데모)")
