@@ -4,5 +4,3 @@ pandas
 fpdf
 stripe
 python-dotenv
-reportlab
-requests
