@@ -4,7 +4,7 @@ from youtube_service import get_channel_stats, get_video_stats
 from report_generator import create_pdf_report
 from stripe_checkout import start_checkout, verify_checkout_session
 from dotenv import load_dotenv
-from utils.report_generator import generate_pdf_report
+from utils.report_generator import create_pdf_report
 from utils.youtube_utils import get_channel_stats
 from utils.stripe_handler import handle_payment
 from googleapiclient.discovery import build
